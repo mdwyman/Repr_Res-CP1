@@ -27,7 +27,7 @@ step_dat <- dat[complete.cases(dat),]
 
 Below is the histogram for the the number of steps taken in a day.  Missing values are ignored in this tabulation.
 
-```{r hist, fig.height=4, fig.width=8, dev='svg'}
+```{r hist, fig.height=4, fig.width=8}
 days_steps <- aggregate(steps ~ date, sum, data = step_dat)
 
 hist(days_steps$steps, col = "red", main = "Steps Distribution", xlab = "# of Steps",
@@ -47,7 +47,7 @@ and are `r mean_steps` and `r median_steps` respectively.
 In order to see the how steps varied throughout the day, the number of steps is averaged for each time interval and across dates:
 
 
-```{r averagepattern, fig.height=4, fig.width=8, dev='svg'}
+```{r averagepattern, fig.height=4, fig.width=8}
 int_steps <- aggregate(steps ~ interval, mean, data = step_dat)
 
 plot(int_steps$interval, int_steps$steps, ylab = 'Number of Steps', 

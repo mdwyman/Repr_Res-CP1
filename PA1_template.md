@@ -30,7 +30,7 @@ hist(days_steps$steps, col = "red", main = "Steps Distribution", xlab = "# of St
      breaks = 50)
 ```
 
-![plot of chunk hist](./PA1_template_files/figure-html/hist.svg) 
+![plot of chunk hist](./PA1_template_files/figure-html/hist.png) 
 
 The mean and median for steps taken in a day are found via:
 
@@ -53,7 +53,7 @@ plot(int_steps$interval, int_steps$steps, ylab = 'Number of Steps',
      xlab = 'Time Interval', col = 'red')
 ```
 
-![plot of chunk averagepattern](./PA1_template_files/figure-html/averagepattern.svg) 
+![plot of chunk averagepattern](./PA1_template_files/figure-html/averagepattern.png) 
 
 The maximum average number steps (206.1698 steps) occurs during the 835th time interval.
 
