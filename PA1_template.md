@@ -1,10 +1,5 @@
----
-title: "Reproducible Reseach - Peer Assessment 1"
-output:
-  html_document:
-    keep_md: yes
-date: "January 17, 2015"
----
+# Reproducible Reseach - Peer Assessment 1
+January 17, 2015  
 
 ### Loading and Processing data
 
@@ -16,46 +11,51 @@ Firstly, the data is read in from a CSV file and stored in *dat*.  Rows with mis
 
 - *interval*: Identifier of the five minute interval during which the data was taken on the associated date.
 
-```{r loadprocess}
+
+```r
 dat <- read.csv('../activity.csv')
 
 step_dat <- dat[complete.cases(dat),]
-
 ```
 
 ###Steps distribution
 
 Below is the histogram for the the number of steps taken in a day.  Missing values are ignored in this tabulation.
 
-```{r hist, fig.height=4, fig.width=8, dev='svg'}
+
+```r
 days_steps <- aggregate(steps ~ date, sum, data = step_dat)
 
 hist(days_steps$steps, col = "red", main = "Steps Distribution", xlab = "# of Steps",
      breaks = 50)
-
 ```
 
+![plot of chunk hist](./PA1_template_files/figure-html/hist.svg) 
+
 The mean and median for steps taken in a day are found via:
-```{r meansteps}
+
+```r
 mean_steps <- mean(days_steps$steps)
 median_steps <- median(days_steps$steps)
 ```
-and are `r mean_steps` and `r median_steps` respectively.
+and are 1.0766 &times; 10<sup>4</sup> and 10765 respectively.
 
 ###Time Series Analysis
 
 In order to see the how steps varied throughout the day, the number of steps is averaged for each time interval and across dates:
 
 
-```{r averagepattern, fig.height=4, fig.width=8, dev='svg'}
+
+```r
 int_steps <- aggregate(steps ~ interval, mean, data = step_dat)
 
 plot(int_steps$interval, int_steps$steps, ylab = 'Number of Steps', 
      xlab = 'Time Interval', col = 'red')
-
 ```
 
-The maximum average number steps (`r max(int_steps$steps)` steps) occurs during the `r int_steps$interval[which.max(int_steps$steps)]`th time interval.
+![plot of chunk averagepattern](./PA1_template_files/figure-html/averagepattern.svg) 
+
+The maximum average number steps (206.1698 steps) occurs during the 835th time interval.
 
 ###Is missing data biasing the analysis?
 
@@ -69,8 +69,7 @@ Create a new dataset that is equal to the original dataset but with the missing 
 
 Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r missingvalues}
-```
+
 
 ###Weekend vs. Weekday
 
@@ -79,14 +78,12 @@ For this part the weekdays() function may be of some help here. Use the dataset 
 Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 
 Separating weekdends and weekdays:
-```{r weekdayend}
-```
+
 
 Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 Panel plot comparing weekends and weekdays:
-```{r weekdayend}
-```
+
 
 
 
