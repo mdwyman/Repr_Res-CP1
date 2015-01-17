@@ -1,0 +1,25 @@
+---
+title: "Reproducible Reseach - Course Project 1"
+date: "January 17, 2015"
+output: html_document
+---
+
+
+```{r loadprocess}
+```
+
+```{r meansteps}
+```
+
+```{r averagepattern}
+```
+
+```{r missingvalues}
+```
+
+```{r weekdayend}
+```
+
+
+
+
