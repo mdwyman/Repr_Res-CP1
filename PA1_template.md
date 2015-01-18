@@ -130,7 +130,10 @@ int_repl_steps <- aggregate(repl_dat$steps,
                             by = list(repl_dat$msince, repl_dat$DayType), 
                             FUN = mean, data = repl_dat)
 names(int_repl_steps) = c("msince","DayType","steps")
-xyplot(steps ~ msince | DayType, data = int_repl_steps, xlab = "Minutes since midnight", ylab = "Average Steps", main = "Steps during day: Weekday vs. Weekend")
+xyplot(steps ~ msince | DayType, data = int_repl_steps, 
+       xlab = "Minutes since midnight", ylab = "Average Steps", 
+       main = "Steps during day: Weekday vs. Weekend", 
+       type = "l", layout = c(1,2))
 ```
 
 ![plot of chunk dayvend](./PA1_template_files/figure-html/dayvend.png) 
